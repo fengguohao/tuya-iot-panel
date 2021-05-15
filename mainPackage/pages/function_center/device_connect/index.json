@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-icon": "@vant/weapp/icon/index"
+  },
+  "navigationBarTitleText": "设备配网",
+  "navigationBarBackgroundColor": "#f8f8f8"
+}

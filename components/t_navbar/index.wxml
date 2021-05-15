@@ -1,0 +1,8 @@
+<!--components/t_navbar/index.wxml-->
+<view style="height: {{height}}; margin-top: {{marginTop}}" class="custom-header">
+  <van-icon class="custom-header-back" name="arrow-left" size="20px" color="#fff" bind:click="backPage" />
+  <view class="custom-header-block" bindtap="jumpEditPage">
+    <view class="custom-header-name">{{device_name}}</view>
+    <van-icon name='edit' size="20px" color="#fff" />
+  </view>
+</view>

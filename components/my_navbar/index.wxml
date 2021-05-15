@@ -1,0 +1,8 @@
+<!--components/my_navbar.wxml-->
+<van-nav-bar fixed="true">
+  <van-icon class="custom-header-back" name="arrow-left" size="20px" color="#000000" bind:click="turnBack" slot="left" />
+  <view slot="title" >
+    <text >{{title}}</text>
+    <van-tag color="{{workStatus==true ? '#009ad6' : '#f2826a' }}" style="margin-left:20rpx">{{msg}}</van-tag>
+  </view>
+</van-nav-bar>

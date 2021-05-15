@@ -1,0 +1,64 @@
+/* miniprogram/pages/home_center/device_list/index.js.wxss */
+/* pages/home_center/device_list/components/base_icon/index.js.wxss */
+.van-tab {
+  flex: none !important;
+  padding: 0 32rpx !important;
+}
+
+.van-ellipsis {
+	font-size: 34rpx;
+	color: #1d1e1f;
+}
+
+.scroll-list{
+  padding: 32rpx 32rpx;
+  width: auto;
+  height: 100%;
+}
+
+.base-list{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.base-item {
+  margin-bottom: 24rpx;
+  width: 320rpx;
+  height: 328rpx;
+  background-color: #fff;
+  border-radius: 32rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.base-item-left {
+  margin-right: 22rpx;
+}
+
+.base-icon {
+  margin-top: 68rpx;
+  width: 96rpx;
+  height: 100rpx;
+}
+
+.base-icon-images {
+  width: 100%;
+  height: 100%;
+}
+
+.base-name {
+  margin-top: 28rpx;
+  width: 352rpx;
+  height: 44rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  text-align: center;
+  color: rgba(34, 36, 44, 0.9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,22 @@
+function countDpItem(dpRate, idx) {
+  var roDpItemStyle = 'normal'
+  switch (dpRate % 3) {
+    case 1:
+      roDpItemStyle = dpRate - idx == 0 ? 'one' : 'normal';
+    case 2:
+      roDpItemStyle = dpRate - idx <= 1 ? 'two' : 'normal';
+
+  }
+
+  if (dpRate == 1) {
+    roDpItemStyle = 'one'
+  } else if (dpRate == 2) {
+    roDpItemStyle = 'two'
+  }
+
+  return 'roDpItem-'+roDpItemStyle
+}
+
+module.exports = {
+  countDpItem: countDpItem
+}

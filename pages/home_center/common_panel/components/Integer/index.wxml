@@ -1,0 +1,5 @@
+<!--pages/home_center/common_panel/components/Integer/index.wxml-->
+<view class="integer-container">
+  <view class="integer-name">{{dpName}}:{{value}}{{unit}}</view>
+  <van-slider min="{{min}}" step="{{step}}" max="{{max}}" value="{{value}}" active-color="#349fff" bind:change="onChange" />
+</view>

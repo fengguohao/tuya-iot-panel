@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index"
+  },
+  "navigationStyle":"default",
+  "navigationBarTitleText": "面板列表",
+  "disableScroll": true
+}

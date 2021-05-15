@@ -1,0 +1,5 @@
+<!--pages/home_center/common_panel/components/Boolean/index.wxml-->
+<view class="boolean-container">
+  <view class="boolean-name">{{dpName}}</view>
+  <van-switch checked="{{isChecked}}" bind:change="onChange" />
+</view>

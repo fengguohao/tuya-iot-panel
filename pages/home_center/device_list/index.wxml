@@ -1,0 +1,44 @@
+<!--miniprogram/pages/home_center/device_list/index.js.wxml-->
+<view>
+	
+  <van-tabs active="{{active}}" bind:change="onChangeTab">
+    <van-tab title="设备面板">
+      <scroll-view class="scroll-list">
+        <view wx:if="{{deviceList.length > 0}}" class="base-list">
+          <block wx:for="{{deviceList}}"wx:key="{{device.id}}" wx:for-index="idx" wx:for-item="device" >
+            <view class="base-item {{(idx+1)%2 !== 0 && 'base-item-left'}}" bindtap="jumpToPanel" data-device="{{device}}">
+              <view class="base-icon">
+                <image class="base-icon-images" src="{{device.icon}}"/>
+              </view>
+              <view class="base-name">{{device.name}}</view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </van-tab>
+	<van-tab title="家庭管理">
+		  <scroll-view class="scroll-list">
+		    <view wx:if="{{homeList.length > 0}}" class="base-list">
+		      <block wx:for="{{homeList}}" wx:key="{{device.home_id}}" wx:for-index="idx" wx:for-item="home" >
+		        <view class="base-item {{(idx+1)%2 !== 0 && 'base-item-left'}}" bindtap="jumpToHomePanel" data-home="{{home}}">
+		          <view class="base-icon" >
+					<van-icon name="wap-home-o" size='40' />
+		          </view>
+		          <view class="base-name">{{home.name}}</view>
+		        </view>
+		      </block>
+		    </view>
+		  </scroll-view>
+	</van-tab>
+  </van-tabs>
+  <van-dialog id="van-dialog" />
+  <view style="position: fixed;bottom: 50px;width: 100%;height: 50px;">
+  	  	<van-row>
+  	  		<van-col span="12" offset="6" style="align-items: center;">
+  				<view style="display:flex;width: 100%;align-items: center;justify-content: center;">
+  					<van-button bind:click="addDevice" icon="plus" round type="primary"></van-button>
+  				</view>
+  			</van-col>
+  	  	</van-row>
+  </view>
+</view>

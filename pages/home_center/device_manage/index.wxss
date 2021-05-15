@@ -1,0 +1,66 @@
+/* miniprogram/pages/home_center/device_manage/index.js.wxss */
+.root {
+  display: flex;
+  flex-direction: column;
+  padding: 16px 16px;
+}
+
+.device-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #fff;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.device-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.device-images {
+  width: 100%;
+  height: 100%;
+}
+
+.device-name {
+  flex: 1;
+  height: 28px;
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: rgba(0, 0, 0, 0.9);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.device-block {
+  display: flex;
+  padding: 24px 16px;
+  background-color: #fff;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.device-block-title {
+  flex: 1;
+	height: 24px;
+	font-family: PingFangSC-Regular;
+	font-size: 16px;
+	line-height: 24px;
+	color: #22242c;
+}
+
+.device-remove {
+  height: 22px;
+	font-family: PingFangSC-Regular;
+	font-size: 16px;
+	color: #ff4444;
+}
+
+.dalog-info {
+  padding: 16px 16px;
+  display: flex;
+  justify-content: center;
+}

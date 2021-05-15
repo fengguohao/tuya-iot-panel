@@ -1,0 +1,52 @@
+@import "index.skeleton.wxss";
+
+.kg_root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.bgImage {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+}
+
+.dcImage {
+  width: 400rpx;
+  height: 400rpx;
+  margin-top: 300rpx;
+}
+
+.dcLabel {
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #61803d;
+}
+
+.kg_footer {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 20rpx 0;
+}
+
+.f-view {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px;
+  color: #61803D;
+}
+
+.fImage{
+    width: 80rpx;
+    height: 80rpx;
+  }

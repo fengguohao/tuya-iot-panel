@@ -1,0 +1,77 @@
+<view class="container">
+	<view>
+		<view class="title">添加定时任务</view>
+	</view>
+	<van-dialog id="van-dialog" />
+	<scroll-view scroll-y="true" style="position: fixed;bottom: 130px;top:0px;width:100%" height="600">
+		<van-cell-group>
+			<van-cell title="设备名称" value="{{device_name}}" border="{{ false }}"/>
+			<van-cell wx:if="{{!groupEditable}}" title="自动化组" value="{{groupname}}" border="{{ false }}"/>
+			<van-field wx:if="{{groupEditable}}" label="自动化组" value="{{groupname}}" placeholder="请输入所属组" border="{{false}}" bind:change="onInputCategory"/>
+			<van-cell title="循环" value="{{readableRepeatStr}}" size="large" title-width="100px" border="{{ false }}"  bind:click="toggleRepeat">
+			</van-cell>
+			<van-cell title="日期" value="{{dateStr}}" size="large" title-width="100px" wx:if="{{!isRepeat}}" border="{{ false }}" bind:click="toggleDate">
+			</van-cell>
+			<van-cell title="时间" value="{{currentTime}}" size="large" title-width="100px" border="{{ false }}" bind:click="toggleTime">
+			</van-cell>
+			<van-cell title="插座开关操作"  value="{{switchStr}}" size="large" title-width="100px" border="{{ false }}" bind:click="toggleSwitch">
+			</van-cell>
+			<van-cell title="插座定时器" value="{{countDownStr}}" size="large" title-width="100px" border="{{ false }}" bind:click="toggleCountdown">
+			</van-cell>
+		</van-cell-group>
+	</scroll-view>
+	<view style="position: fixed;bottom: 50px;width: 100%;height: 50px;">
+		  	<van-row>
+		  		<van-col span="8" offset="2" style="align-items: center;">
+					<view style="display:flex;width: 100%;align-items: center;justify-content: center;">
+						<van-button bind:click="turnBack" round type="warning">放弃更改</van-button>
+					</view>
+				</van-col>
+				
+		  		<van-col span="8" offset="4">
+					<view style="display:flex;width: 100%;align-items: center;justify-content: center;">
+						<van-button bind:click="saveTimer" round type="primary">保存定时器</van-button>
+					</view>
+				</van-col>
+		  	</van-row>
+	</view>
+	
+	<van-popup show="{{ repeatCollapse||dateCollapse||timeCollapse||switchCollapse||countdownCollapse }}" position="bottom" bind:close="onClosePopUp">
+		<view  wx:if="{{repeatCollapse}}" >
+			<van-row>
+			  <van-col span="22" offset="2">
+				  <van-checkbox-group value="{{repeatList}}" bind:change="onSetRepeat">
+				    <van-checkbox wx:for="{{weekList}}" wx:for-item="weekItem" wx:for-index="weekIdx" name="{{weekIdx}}" shape="square" icon-size="25px" style="margin: 2px;">{{weekItem}}</van-checkbox>
+				  </van-checkbox-group>
+			  </van-col>
+			</van-row>
+		</view>
+		<van-datetime-picker wx:if="{{dateCollapse}}"
+		  type="date"
+		  value="{{ currentDate }}"
+		  bind:change="onInputDate"
+		  formatter="{{ formatter }}"
+		  show-toolbar="{{false}}"
+		   min-date="{{ minDate }}"
+		/>
+		<van-datetime-picker wx:if="{{timeCollapse}}"
+		  type="time"
+		  value="{{ currentTime }}"
+		  bind:change="onInputTime"
+		  show-toolbar="{{false}}"
+		  min
+		/>
+		<van-picker   wx:if="{{switchCollapse}}"
+		default-index="{{ switchIdx }}" 
+		columns="{{ switchList }}" 
+		show-toolbar="{{false}}"
+		bind:change="setSwitchStatus" />
+		<van-datetime-picker wx:if="{{countdownCollapse}}"
+		  type="time"
+		  value="{{ countDownTime }}"
+		  show-toolbar="{{false}}"
+		  bind:input="onInputCountDown"
+		/>
+		
+	</van-popup>
+</view>

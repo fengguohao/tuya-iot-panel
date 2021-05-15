@@ -1,0 +1,25 @@
+<!--miniprogram/pages/home_center/common_panel/index.js.wxml-->
+<import src="index.skeleton.wxml"/>
+<template is="skeleton" wx-if="{{loading}}" />
+
+<view class="kg_root">
+  <toast id="toast"></toast>
+  <image class="bgImage" src="{{imgList.bgImage}}" > </image>
+  <navbar device_name="{{device_name}}"></navbar>
+  <image class="dcImage" src="{{rwDpList['switch']['value'] ? imgList.dcOn : imgList.dcOff}}" bindtap="turnDeviceOn" ></image>
+  <text class="dcLabel">{{rwDpList['switch']['value'] ? '插座已开启' : '插座已关闭'}}</text>
+  <view class="kg_footer">
+    <view bindtap="turnDeviceOn" class="f-view">
+      <image class="fImage" src="{{rwDpList['switch']['value'] ? imgList.power : imgList.powerOff}}"></image>开关
+    </view>
+    <view bindtap="turnNoticeOn" class="f-view">
+      <image class="fImage" src="{{imgList.schedule}}"></image>定时
+    </view>
+    <view bindtap="turnNoticeOn" class="f-view">
+      <image class="fImage" src="{{imgList.timer}}"></image>倒计时
+    </view>
+    <view bindtap="turnNoticeOn" class="f-view">
+      <image class="fImage" src="{{imgList.statistics}}"></image>用电量
+    </view>
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<!--miniprogram/pages/home_center/device_manage/index.js.wxml-->
+<view class="root">
+  <view class="device-header">
+    <view class="device-icon">
+      <image class="device-images" src="{{device_icon}}" />
+    </view>
+    <text class="device-name">{{device_name}}</text>
+  </view>
+
+  <view class="device-block" bindtap="showDeviceInfo">
+    <text class="device-block-title">设备信息</text>
+    <van-icon size="20" name="arrow" />
+  </view>
+
+  <view class="device-block" style="justify-content: center">
+    <text class="device-remove">移除设备</text>
+  </view>
+</view>
+
+<van-dialog use-slot id="van-dialog" show="{{dialogShow}}" title="设备信息">
+  <view class="dalog-info">
+    <text>设备id: {{device_id}}</text>
+  </view>
+</van-dialog>

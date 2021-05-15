@@ -1,0 +1,116 @@
+/* miniprogram/pages/home_center/common_panel/index.js.wxss */
+
+/**index.wxss**/
+.container {
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+} 
+
+.chart_title{
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+  font-weight: bold;
+}
+
+.mainPanel{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(top,pink,lightblue,skyblue);
+  z-index: -1;
+}
+.device-icon{
+  display:flex;              
+  justify-content: center; 
+  margin-top: 50rpx;
+}
+
+
+
+.status{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+  font-weight: bold;
+}
+
+.status_total{
+  display: flex;
+  width: 100%;
+  height: 60px;
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+  font-size:large;
+  font-weight: bold;
+}
+.status_value{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;  
+  text-align: center;
+  color:rgba(80, 80, 80, 0.7)
+}
+
+.status_box{
+  height: 100%;
+  border-right-color:rgba(80, 80, 80, 0.7);
+  border-right-width: 3px;
+  border-right-style: dashed;
+}
+
+.timer-container{
+  position: absolute;
+
+  top:10%;
+  bottom:8%;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+
+}
+
+.timer-box{
+  height: 80px;
+  background-color: #add8e6;
+  border-bottom:solid #ffffff 2px ;
+}
+
+.timer-box .timer-type{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size:large;
+  font-weight: bold;
+  box-sizing: border-box;
+  color: black;
+  line-height:50px;
+}
+
+.timer-box .timer-details{
+  flex-shrink: 1;
+  line-height:25px;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  color:rgba(80, 80, 80, 0.7);
+}
+
+
+
+

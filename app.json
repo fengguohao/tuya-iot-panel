@@ -1,0 +1,31 @@
+{
+  "pages": [
+	"pages/home_center/device_list/index",
+	"pages/home_center/timer_edit/index",
+    "pages/home_center/common_panel/index",
+    "pages/home_center/device_manage/index",
+	"pages/old_home_center/common_panel/index"
+	
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "subpackages": [
+    {
+      "root": "mainPackage",
+      "pages": [
+        "pages/function_center/device_connect/index"
+      ],
+      "plugins": {
+        "tuya-ap-plugin": {
+          "version": "3.3.19",
+          "provider": "wxd2aa51ffacc3ff86"
+        }
+      }
+    }
+  ],
+  "sitemapLocation": "sitemap.json"
+}

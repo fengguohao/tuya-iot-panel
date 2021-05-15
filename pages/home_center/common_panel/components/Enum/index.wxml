@@ -1,0 +1,14 @@
+<!--pages/home_center/common_panel/components/Enum/index.wxml-->
+<view class="enum-container">
+  <view class="enum-name">{{dpName}}</view>
+  <scroll-view class="enum-scrollView" scroll-y="{{false}}" scroll-x="{{true}}">
+    <block wx:if="{{range.length > 0}}">
+      <block wx:for="{{range}}" wx:key="{{item}}" wx:for-item="item">
+        <view style="background-color: {{item == value ? '#349fff' : '#d6d6d6'}}"
+          class="enum-item {{item == value ? '' : 'unselect'}}" data-value="{{item}}" bindtap="onChange">
+          {{item}}
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

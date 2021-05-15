@@ -1,0 +1,150 @@
+<navbar title="{{device_name}}" workStatus="{{workStatus}}" msg="{{workStatus?'工作中':'已停止'}}" style="  z-index: 2;">
+</navbar>
+<view class="mainPanel"></view>
+
+
+<view class="device_ctrl" wx:if="{{currentPage==0}}" style="margin-top:80px">
+	<van-image wx:if="{{workStatus}}" width="17rem" height="17rem" class="device-icon" src="{{openPic}}" fit="cover"
+		bindtap="ctrlSocket">
+		<van-loading slot="loading" type="spinner" size="20" vertical>正在获取设备状态</van-loading>
+	</van-image>
+	<van-image wx:else width="17rem" height="17rem" class="device-icon" src="{{closePic}}" fit="cover"
+		bindtap="ctrlSocket">
+		<van-loading slot="loading" type="spinner" size="20" vertical>正在获取设备状态</van-loading>
+	</van-image>
+	<text class="status_total" style="color:{{workStatus?'#33CC66':'#FF0000'}};">
+		{{workStatus==true?'设备工作中':'设备已关闭'}}</text>
+	<van-divider/>
+	<text class="status">设备状态</text>
+	<van-row>
+		<van-col span="8">
+			<view class="status_box">
+				<text class="status">
+					功率
+				</text>
+				<text class="status_value">
+					{{power/10}}W
+				</text>
+			</view>
+
+		</van-col>
+		<van-col span="8">
+			<view class="status_box">
+				<text class="status">
+					电压
+				</text>
+				<text class="status_value">
+					{{voltage/10}}V
+				</text>
+			</view>
+		</van-col>
+		<van-col span="8">
+			<text class="status">
+				电流
+			</text>
+			<text class="status_value">
+				{{current}}mA
+			</text>
+		</van-col>
+	</van-row>
+	<van-row>
+		<van-col span="8" offset="8">
+			<view>
+				<text class="status">
+					倒计时
+				</text>
+				<view class="status_value">
+					<van-count-down time="{{ timeRemain*1000 }}" wx:if="{{timeRemain!=0}}" />
+					<view wx:else>
+						<van-stepper value="{{ countdowntime }}" bind:change="onChangeTimeRemain" />
+						<van-button type="primary" bind:click="startCountDown">开始倒计时</van-button>
+					</view>
+				</view>
+			</view>
+		</van-col>
+	</van-row>
+	
+</view>
+<view wx:if="{{currentPage==1}}" style="margin-top:80px">
+
+	<view class="container" style="top:15%;bottom:10%;">
+		<text class="chart_title" style="position: absolute;top:50%;bottom:60%;">近七日电量统计</text>
+		<ec-canvas id="mychart-recent7days" canvas-id="mychart-line" ec="{{ ec }}"
+			style="position: absolute;top:0;bottom:50%;left:0;right:0;"></ec-canvas>
+		<text class="chart_title" style="position: absolute;top:95%;bottom:-5%;">近24h电量统计</text>
+		<ec-canvas id="mychart-recent24hours" canvas-id="mychart-line" ec="{{ ec }}"
+			style="position: absolute;top:45%;bottom:5%;left:0;right:0;"></ec-canvas>
+	</view>
+
+	<van-row style="top:10%">
+		<van-col span="12">
+			<text class="status" style="font-size:20px;">当日电量</text>
+			<text class="status_value">
+				{{statistics.todayElectricity}}Kw·h
+			</text>
+		</van-col>
+		<van-col span="12">
+			<text class="status" style="font-size:20px;">累计电量</text>
+			<text class="status_value">
+				{{statistics.fullElectricity}}Kw·h
+			</text>
+		</van-col>
+	</van-row>
+
+</view>
+<view wx:if="{{currentPage==2&&!editingTimer}}">
+	<scroll-view scroll-y="true" class="timer-container" style="height:530px">
+		<van-dialog id="van-dialog" />
+		<text style="display:flex;text-align: center;justify-content: center;">点击+添加定时任务和任务组</text>
+		<van-collapse value="{{ activeNames }}" bind:change="onChangeAutoPage" custom-class="background:transparent;">
+			<van-collapse-item wx:for="{{timerList}}" wx:for-item="category" wx:for-index="idx" title='{{category.category.category}}' name="{{idx}}" right-icon="">
+				<view slot="value">
+					<van-button icon="delete" type="danger" round bind:click="deleteCategory" data-category='{{category.category.category}}' style="margin-right:10px ;"></van-button>
+					
+					<van-button icon="arrow" type="primary" round ></van-button>
+				</view>
+				
+				<view>
+					<view class="timer-box" style="align-items: center; justify-content: center; display: flex;">
+						<van-button icon="plus" type="primary" data-category='{{category.category.category}}' bind:click="addByCategory">添加定时任务</van-button>
+					</view>
+					<view class="timer-box" wx:for-item="timer" wx:for-index="idx2" wx:for='{{category.groups}}' >
+						<van-rol wx:if='{{timer.timers[0].status!=2}}'>
+							<van-col span="14" data-group='{{idx}}' data-timer='{{idx2}}' bindtap="toeditpage">
+								<view>
+									<text></text>
+									<text class="timer-type">{{timer.timers[0].time}}</text>
+								</view>
+								<view>
+									<text class="timer-details">{{timer.timers[0].loopStr}} {{timer.timers[0].instr}}</text>
+								</view>
+							</van-col>
+							<van-col span="5" >
+								<!-- <van-tag type="{{timer.timers[0].working?'success':'warning'}}">{{timer.timers[0].working?'开启中':'已关闭'}}</van-tag> -->
+								<van-switch checked="{{ timer.timers[0].status==1 }}" data-category='{{category.category.category}}' data-groupid='{{timer.id}}' data-status='{{timer.timers[0].status}}' bind:change="onChangeCategoryStatus" size="20px" />
+							</van-col>
+							<van-col span="5">
+								<!-- <van-tag type="{{timer.timers[0].working?'success':'warning'}}">{{timer.timers[0].working?'开启中':'已关闭'}}</van-tag> -->
+								<van-button icon="delete" type="danger" round bind:click="deleteGroup" data-category='{{category.category.category}}' data-groupid='{{timer.id}}'></van-button>
+							</van-col>
+						</van-rol>
+					</view>
+				</view>
+			</van-collapse-item>
+		</van-collapse>
+	</scroll-view>
+	<view style="position: fixed;bottom: 50px;width: 100%;height: 50px;">
+		  	<van-row>
+		  		<van-col span="12" offset="6" style="align-items: center;">
+					<view style="display:flex;width: 100%;align-items: center;justify-content: center;">
+						<van-button bind:click="addTimer" icon="plus" round type="primary"></van-button>
+					</view>
+				</van-col>
+		  	</van-row>
+	</view>
+</view>
+<view wx:if="{{currentPage==3}}">
+
+</view>
+
+<tabbar pageList="{{pageList}}" active="{{currentPage}}" onChangeFunc="{{onChangeFunc}}" style="z-index:2;"></tabbar>

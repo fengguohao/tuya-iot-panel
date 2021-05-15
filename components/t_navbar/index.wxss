@@ -1,0 +1,30 @@
+/* components/t_navbar/index.wxss */
+.custom-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-header-block {
+  display: flex;
+}
+
+.custom-header-back {
+  position: absolute;
+  left: 16px;
+}
+
+.custom-header-name {
+  z-index: 1;
+  width: 80px;
+  height: 25px;
+  font-family: PingFangSC-Medium;
+  font-size: 17px;
+  text-align: center;
+  line-height: 24px;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

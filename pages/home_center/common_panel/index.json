@@ -1,0 +1,25 @@
+{
+  "usingComponents": {
+    "navbar": "../../../components/my_navbar/index",
+    "Boolean": "./components/Boolean/index",
+    "Enum": "./components/Enum/index",
+    "Integer": "./components/Integer/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "tabbar":"../../../components/s_tabbar/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-divider": "@vant/weapp/divider/index",
+    "ec-canvas": "../../../ec-canvas/ec-canvas",
+    "van-collapse": "@vant/weapp/collapse/index",
+    "van-collapse-item": "@vant/weapp/collapse-item/index",
+	 "van-count-down": "@vant/weapp/count-down/index",
+	 "van-stepper": "@vant/weapp/stepper/index",
+	 "van-button": "@vant/weapp/button/index",
+	 "van-tag": "@vant/weapp/tag/index",
+	 "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "navigationStyle": "custom"
+}

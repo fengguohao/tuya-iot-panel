@@ -4,8 +4,4 @@ For more information, please check Tuya Developer Website.
 
 # tuya-iot-panel
 
-[英文版]: ./README.en.md
-
-
-
-这是涂鸦IOT智能单插面板微信小程序项目
+this is tuya-iot intelligent panel weixin miniprogram.

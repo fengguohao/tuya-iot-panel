@@ -1,0 +1,40 @@
+/* miniprogram/pages/function_center/device_connet/index.wxss */
+.root {
+	padding: 16px 16px;
+}
+
+.device-connect-title {
+	margin-top: 8px;
+  font-family: PingFangSC-Medium;
+	font-size: 18px;
+	letter-spacing: 0px;
+	color: rgba(0, 0, 0, 0.9);
+}
+
+.device-connect-text {
+	font-family: PingFangSC-Regular;
+	font-size: 14px;
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.device-connect-item {
+	padding: 28px 16px 28px 20px;
+	display: flex;
+	margin-top: 8px;
+	background-color: #fff;
+	border-radius: 16px;
+}
+
+.device-connect-item-name {
+	flex: 1;
+	font-family: PingFangSC-Regular;
+	font-size: 16px;
+	color: #22242c;
+}
+
+.device-connect-copy-title {
+  font-family: PingFangSC-Regular;
+	font-size: 16px;
+	line-height: 24px;
+	color: #22242c;
+}

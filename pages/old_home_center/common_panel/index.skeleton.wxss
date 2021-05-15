@@ -1,0 +1,76 @@
+/*
+此文件为开发者工具生成，生成时间: 2021/4/14 下午2:35:27
+
+在 /Users/lirui/Desktop/未命名文件夹 3/pages/home_center/common_panel/index.wxss 中引入样式
+```
+@import "./index.skeleton.wxss";
+```
+
+更多详细信息可以参考文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/skeleton.html
+*/
+.sk-transparent {
+    color: transparent !important;
+  }
+.sk-text-14-5833-882 {
+    background-image: linear-gradient(transparent 14.5833%, #EEEEEE 0%, #EEEEEE 85.4167%, transparent 0%) !important;
+    background-size: 100% 48.0000rpx;
+    position: relative !important;
+  }
+.sk-text {
+    background-origin: content-box !important;
+    background-clip: content-box !important;
+    background-color: transparent !important;
+    color: transparent !important;
+    background-repeat: repeat-y !important;
+  }
+.sk-text-14-2857-619 {
+    background-image: linear-gradient(transparent 14.2857%, #EEEEEE 0%, #EEEEEE 85.7143%, transparent 0%) !important;
+    background-size: 100% 42.0000rpx;
+    position: relative !important;
+  }
+.sk-image {
+    background: #EFEFEF !important;
+  }
+.sk-pseudo::before, .sk-pseudo::after {
+      background: #EFEFEF !important;
+      background-image: none !important;
+      color: transparent !important;
+      border-color: transparent !important;
+    }
+.sk-pseudo-rect::before, .sk-pseudo-rect::after {
+      border-radius: 0 !important;
+    }
+.sk-pseudo-circle::before, .sk-pseudo-circle::after {
+      border-radius: 50% !important;
+    }
+.sk-container {
+    background-color: transparent;
+  }
+ 
+    @keyframes loading-rotate {
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .sk-loading-spinner {
+      position: absolute;
+      top: 50%;
+      margin-top: -0.5rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .sk-loading-spinner .circular {
+      border-radius: 50%;
+      width: 1rem;
+      height: 1rem;
+      display: inline-block;
+      box-sizing: border-box;
+      border-top: solid 2px #409eff;
+      border-right: solid 2px #409eff;
+      border-bottom: solid 2px #409eff;
+      border-left: solid 2px transparent;
+      animation: loading-rotate 1s linear infinite;
+    }
+    

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "navbar": "../../../components/t_navbar/index",
+    "toast": "../../../components/t_toast/index"
+  },
+  "disableScroll":true
+}
+

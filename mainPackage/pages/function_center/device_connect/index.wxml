@@ -1,0 +1,14 @@
+<!--miniprogram/pages/function_center/device_connet/index.wxml-->
+<view class="root">
+  <view class="device-connect-title">体验配网</view>
+  <block wx:for="{{list}}" wx:for-item="item">
+    <view class="device-connect-item" data-baseUrl="{{item.baseUrl}}" bindtap="gotoPluginpage">
+      <view class="device-connect-item-name">{{item.name}}</view>
+      <van-icon size="20" name="arrow" color="#c8c8c8" />
+    </view>
+  </block>
+  <view class="device-connect-item" data-baseUrl="{{apUrl}}" bindtap="gotoWebview">
+    <view class="device-connect-item-name">查看示例代码与文档说明</view>
+    <van-icon size="20" name="arrow" color="#c8c8c8" />
+  </view>
+</view>
