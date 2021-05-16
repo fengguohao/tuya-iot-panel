@@ -124,6 +124,7 @@ Page({
 			device_icon
 		})
 		// mqtt消息监听
+		wxMqtt.reconnectMqtt();
 		wxMqtt.on('message', (topic, newVal) => {
 			const {
 				status
