@@ -1,0 +1,14 @@
+<!--miniprogram/pages/home_center/device_list/index.js.wxml-->
+<view>
+
+	<van-cell-group>
+	  <van-cell icon="graphic" title="设备名称" value="{{device_name}}" ></van-cell>
+	</van-cell-group>
+	
+	<van-cell-group>
+	  <van-cell icon="clock" title="日期" value="" >
+		  <van-icon slot="right-icon" name="search" class="custom-icon" /><text>用电量(Kw·h)</text>
+	  </van-cell>
+	  <van-cell wx:for="{{list}}" wx:for-item="it" title="{{it.key}}" value="{{it.value}}" />
+	</van-cell-group>
+</view>

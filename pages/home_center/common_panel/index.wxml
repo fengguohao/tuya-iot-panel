@@ -68,10 +68,20 @@
 <view wx:if="{{currentPage==1}}" style="margin-top:80px">
 
 	<view class="container" style="top:15%;bottom:10%;">
-		<text class="chart_title" style="position: absolute;top:50%;bottom:60%;">近七日电量统计</text>
+		<view style="position: absolute;bottom:50%;z-index:3;">
+			<text class="chart_title" >近七日电量统计</text>
+			<van-button icon="star-o" type="primary" size="small" style="margin-left: 20px;" bind:click="showDaysDetails">查看更多 </van-button>
+		</view>
+		
+		
 		<ec-canvas id="mychart-recent7days" canvas-id="mychart-line" ec="{{ ec }}"
 			style="position: absolute;top:0;bottom:50%;left:0;right:0;"></ec-canvas>
-		<text class="chart_title" style="position: absolute;top:95%;bottom:-5%;">近24h电量统计</text>
+			
+		<view style="position: absolute;bottom:5%;z-index:3;">
+			<text class="chart_title">近24h电量统计</text>
+			<van-button icon="star-o" type="primary" size="small" style="margin-left: 20px;" bind:click="showHoursDetails">查看更多 </van-button>
+		</view>
+		
 		<ec-canvas id="mychart-recent24hours" canvas-id="mychart-line" ec="{{ ec }}"
 			style="position: absolute;top:45%;bottom:5%;left:0;right:0;"></ec-canvas>
 	</view>
@@ -95,8 +105,13 @@
 <view wx:if="{{currentPage==2&&!editingTimer}}">
 	<scroll-view scroll-y="true" class="timer-container" style="height:530px">
 		<van-dialog id="van-dialog" />
-		<text style="display:flex;text-align: center;justify-content: center;">点击+添加定时任务和任务组</text>
+<!-- 		<text style="display:flex;text-align: center;justify-content: center;"></text> -->
 		<van-collapse value="{{ activeNames }}" bind:change="onChangeAutoPage" custom-class="background:transparent;">
+			<van-empty wx:if="{{timerList.length==0}}"
+			  class="custom-image"
+			  image="https://img.yzcdn.cn/vant/custom-empty-image.png"
+			  description="点击+添加定时任务和任务组"
+			/>
 			<van-collapse-item wx:for="{{timerList}}" wx:for-item="category" wx:for-index="idx" title='{{category.category.category}}' name="{{idx}}" right-icon="">
 				<view slot="value">
 					<van-button icon="delete" type="danger" round bind:click="deleteCategory" data-category='{{category.category.category}}' style="margin-right:10px ;"></van-button>

@@ -139,11 +139,14 @@ Page({
 
 	},
 	onLoadStatictics: async function() {
+		wx.showLoading({
+			title: '加载中',
+		});
 		this.echartsrecent7days = this.selectComponent('#mychart-recent7days');
 		this.echartsrecent24hours = this.selectComponent('#mychart-recent24hours');
 		await this.updateStatistic();
 		this.init_echarts();
-
+		wx.hideLoading();
 	},
 	init_echarts: function() {
 		this.echartsrecent7days.init((canvas, width, height) => {
@@ -488,6 +491,9 @@ Page({
 		})
 	},
 	getTimers: async function() {
+		wx.showLoading({
+			title: '加载中',
+		});
 		let a = await this.getSocketCountdown();
 		let weekIdx = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
 		for (let i in a) {
@@ -535,6 +541,7 @@ Page({
 		this.setData({
 			timerList: a
 		})
+		wx.hideLoading();
 	},
 
 	updateTimer: async function(a, category) {
@@ -636,5 +643,18 @@ Page({
 		await editStatusByCategory(this.data.device_id,group_id,category,status)
 		this.getTimers();
 		
+	},
+	showDaysDetails(){
+		this.showDetails(0);
+	},
+	showHoursDetails(){
+		this.showDetails(1);
+	},
+	showDetails(type){
+		let device_id = this.data.device_id;
+		let device_name = this.data.device_name;
+		wx.navigateTo({
+			url:"/pages/home_center/ele_statistic/index?device_id="+device_id+"&device_name="+device_name+"&type="+type
+		})
 	}
 })

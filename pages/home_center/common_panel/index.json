@@ -19,7 +19,8 @@
 	 "van-stepper": "@vant/weapp/stepper/index",
 	 "van-button": "@vant/weapp/button/index",
 	 "van-tag": "@vant/weapp/tag/index",
-	 "van-dialog": "@vant/weapp/dialog/index"
+	 "van-dialog": "@vant/weapp/dialog/index",
+	 "van-empty": "@vant/weapp/empty/index"
   },
   "navigationStyle": "custom"
 }
